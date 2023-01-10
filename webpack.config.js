@@ -1,8 +1,8 @@
+/** @type {import('webpack').Configuration} */
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-
 const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
+const DotenvWebpackPlugin = require("dotenv-webpack");
 const config = {
   entry: "./src/index.tsx",
   output: {
@@ -40,7 +40,7 @@ const config = {
     static: {
       directory: "./dist",
     },
-    port: 3000,
+    port: 4000,
     open: true,
     hot: true,
     compress: true,
@@ -55,6 +55,10 @@ const config = {
       title: "Index HTML File Loader",
       filename: "index.html",
       template: "dist/index.html",
+    }),
+    new DotenvWebpackPlugin({
+      path: "./.env",
+      safe: true,
     }),
   ],
 };
