@@ -1,5 +1,5 @@
 import { Button, Input, InputProps, Switch } from "antd";
-import { GREEN, LIGHTGREEN, RED, WHITE } from "constants/index";
+import { GREEN, LIGHT_GREEN, RED, WHITE } from "constant/index";
 import styled, { css } from "styled-components";
 const { TextArea } = Input;
 
@@ -28,8 +28,8 @@ const ButtonEffects = css`
   &.ant-btn:active,
   &.ant-btn:focus {
     color: ${WHITE};
-    background-color: ${LIGHTGREEN};
-    border-color: ${LIGHTGREEN};
+    background-color: ${LIGHT_GREEN};
+    border-color: ${LIGHT_GREEN};
   }
 `;
 

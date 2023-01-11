@@ -4,7 +4,9 @@
     "paths": {
       "@test-utils": ["src/test-utils/test-utils.ts"],
       "context": ["src/context/"],
-      "hoc": ["src/hoc/"]
+      "hoc": ["src/hoc/"],
+      "constants": ["src/constant/index.ts"],
+      "state": ["src/redux/"]
     },
     "target": "ES5",
     "module": "ESNext",
@@ -42,6 +44,6 @@
       }
     ]
   },
-  "include": ["src", "src/**/*", "test-utils"],
+  "include": ["src", "src/**/*", "test-utils", "src/constant"],
   "exclude": ["node_modules"]
 }

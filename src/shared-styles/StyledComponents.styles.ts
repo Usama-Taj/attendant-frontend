@@ -1,4 +1,4 @@
-import { BLUE, RED } from "constants/index";
+import { BLUE, RED } from "constant";
 import { Divider as AntDivider } from "antd";
 import styled from "styled-components";
 
