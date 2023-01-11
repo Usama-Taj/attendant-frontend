@@ -6,8 +6,7 @@ const DotenvWebpackPlugin = require('dotenv-webpack');
 const config = {
   entry: './src/index.tsx',
   output: {
-    path: path.resolve(__dirname, 'docs'),
-    publicPath: '/',
+    path: path.resolve(__dirname, 'dist'),
     filename: '[name].[contenthash].js',
   },
   module: {
@@ -34,11 +33,12 @@ const config = {
   },
   resolve: {
     extensions: ['.js', '.json', '.jsx', '.tsx', '.ts'],
+
     plugins: [new TsconfigPathsPlugin()],
   },
   devServer: {
     static: {
-      directory: './docs',
+      directory: './dist',
     },
     port: 4000,
     open: true,
@@ -49,12 +49,11 @@ const config = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      favicon: '',
       showErrors: true,
       hash: true,
       title: 'Index HTML File Loader',
       filename: 'index.html',
-      template: 'docs/index.html',
+      template: 'dist/index.html',
     }),
     new DotenvWebpackPlugin({
       path: './.env',
