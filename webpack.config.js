@@ -7,6 +7,7 @@ const config = {
   entry: './src/index.tsx',
   output: {
     path: path.resolve(__dirname, 'docs'),
+    publicPath: process.env.PUBLIC_URL,
     filename: '[name].[contenthash].js',
   },
   module: {
@@ -33,12 +34,11 @@ const config = {
   },
   resolve: {
     extensions: ['.js', '.json', '.jsx', '.tsx', '.ts'],
-
     plugins: [new TsconfigPathsPlugin()],
   },
   devServer: {
     static: {
-      directory: './dist',
+      directory: './docs',
     },
     port: 4000,
     open: true,
