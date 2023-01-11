@@ -1,34 +1,34 @@
-import React, { useState } from "react";
-import { UserOutlined } from "@ant-design/icons";
-import { Center } from "shared-styles/Grid.styles";
-import { Input, Button, Form } from "antd";
-import { LoginCard, LoginForm } from "./Login.styles";
-import { useNavigate } from "react-router-dom";
-import { Controller, useForm } from "react-hook-form";
-import { loginSchema } from "./validation";
-import { ILoginFormFields } from "types";
-import { yupResolver } from "@hookform/resolvers/yup";
-import useSWR from "swr";
-import { setEmployeeFirstLogin } from "api/employee.api";
+import React, { useState } from 'react';
+import { UserOutlined } from '@ant-design/icons';
+import { Center } from 'shared-styles/Grid.styles';
+import { Input, Button, Form } from 'antd';
+import { LoginCard, LoginForm } from './Login.styles';
+import { useNavigate } from 'react-router-dom';
+import { Controller, useForm } from 'react-hook-form';
+import { loginSchema } from './validation';
+import { ILoginFormFields } from 'types';
+import { yupResolver } from '@hookform/resolvers/yup';
+import useSWR from 'swr';
+import { setEmployeeFirstLogin } from 'api/employee.api';
 const { Item: FormItem } = Form;
 const Login: React.FC = () => {
   const navigate = useNavigate();
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState('');
   const { data: mutationResponse, mutate } = useSWR(
     () => username,
     setEmployeeFirstLogin,
     {
       onSuccess(data, key, config) {
         console.log(
-          "🚀 ~ file: Login.tsx:18 ~ const{data:mutationResponse,mutate}=useSWR ~ config",
+          '🚀 ~ file: Login.tsx:18 ~ const{data:mutationResponse,mutate}=useSWR ~ config',
           config
         );
         console.log(
-          "🚀 ~ file: Login.tsx:18 ~ const{data:mutationResponse,mutate}=useSWR ~ key",
+          '🚀 ~ file: Login.tsx:18 ~ const{data:mutationResponse,mutate}=useSWR ~ key',
           key
         );
         console.log(
-          "🚀 ~ file: Login.tsx:18 ~ const{data:mutationResponse,mutate}=useSWR ~ data",
+          '🚀 ~ file: Login.tsx:18 ~ const{data:mutationResponse,mutate}=useSWR ~ data',
           data
         );
       },
@@ -44,6 +44,7 @@ const Login: React.FC = () => {
   });
   const onSubmit = (data: ILoginFormFields) => {
     setUsername(data.username);
+    navigate('/pin-confirmation');
   };
   return (
     <Center>
@@ -51,7 +52,7 @@ const Login: React.FC = () => {
         <LoginForm onSubmit={handleSubmit(onSubmit)}>
           <FormItem
             help={errors?.username && errors.username.message}
-            validateStatus={errors?.username && "error"}
+            validateStatus={errors?.username && 'error'}
           >
             <Controller
               name="username"
@@ -67,7 +68,7 @@ const Login: React.FC = () => {
           </FormItem>
           <FormItem
             help={errors?.password && errors.password.message}
-            validateStatus={errors?.password && "error"}
+            validateStatus={errors?.password && 'error'}
           >
             <Controller
               name="password"

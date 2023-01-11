@@ -7,7 +7,7 @@ const config = {
   entry: './src/index.tsx',
   output: {
     path: path.resolve(__dirname, 'docs'),
-    publicPath: process.env.PUBLIC_URL,
+    publicPath: '/',
     filename: '[name].[contenthash].js',
   },
   module: {
