@@ -54,7 +54,7 @@ const config = {
       hash: true,
       title: 'Index HTML File Loader',
       filename: 'index.html',
-      template: 'dist/index.html',
+      template: 'docs/index.html',
     }),
     new DotenvWebpackPlugin({
       path: './.env',
